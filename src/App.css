@@ -1,0 +1,69 @@
+:root {
+  --bgHeader: #1149cb;
+}
+
+.header {
+  background-color: red;
+  color: yellow;
+  font-size: 1.25em;
+  height: 3em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 2px solid white;
+  padding-top: 1em;
+  text-shadow: 0px 0px 3px #222;
+}
+
+.header--isHotdog {
+  background-color: green;
+  color: yellow;
+}
+
+.hotdog {
+  background-color: red;
+  border-radius: 50%;
+  position: relative;
+  top: 0em;
+  text-align: center;
+  width: 2em;
+  height: 2em;
+  padding: 1rem;
+  font-size: 1.5em;
+}
+
+.hotdog--green {
+  background-color: green;
+}
+
+.image-container {
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.cameraButton {
+  background-color: var(--bgHeader);
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  text-align: center;
+  align-items: center;
+  justify-content: space-around;
+  position: absolute;
+  bottom: 1em;
+  right: calc(50% - 30px);
+}
+
+.inputFile {
+  display: none;
+}
