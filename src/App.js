@@ -11,19 +11,20 @@ class App extends Component {
 
   componentWillMount() {
     firebase.database().ref('/uploads').on('value', snapshot => {
+      console.log(snapshot.val());
       this.setState({ isHotdog: snapshot.val().photo.isHotdog });
     });
   }
 
   handleUpload = (event) => {
+    console.log(event);
     const file = event.target.files[0];
 
     return firebase.database().ref('/uploads/photo').set({
       isHotdog: false
-    })
-    .then(data => {
-      return firebase.storage().ref(`/uploads/${file.name}`).put(file)
-        .then(snapshot => {
+    }).then(data => {
+      console.log(data);
+      return firebase.storage().ref(`/uploads/${file.name}`).put(file).then(snapshot => {
           this.setState({ imageUrl: snapshot.metadata.downloadURLs[0] });
         });
     });

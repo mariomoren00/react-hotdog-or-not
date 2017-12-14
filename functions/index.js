@@ -6,6 +6,7 @@ const vision = require('@google-cloud/vision')();
 admin.initializeApp(functions.config().firebase);
 
 exports.isHotdog = functions.storage.object().onChange(event => {
+  console.log(event);
   const object = event.data;
 
   if (object.resourceState === 'not_exists') {
@@ -18,6 +19,7 @@ exports.isHotdog = functions.storage.object().onChange(event => {
   const file = bucket.file(object.name);
 
   return vision.detectLabels(file).then(data => {
+    console.log('Detect label');
     const labels = data[0];
     console.log(labels);
     if (labels.includes('hot dog')) {
