@@ -12,6 +12,7 @@ class App extends Component {
   componentWillMount() {
     firebase.database().ref('/uploads').on('value', snapshot => {
       console.log(snapshot.val());
+      console.log(snapshot.val().photo);      
       this.setState({ isHotdog: snapshot.val().photo.isHotdog });
     });
   }
@@ -51,6 +52,7 @@ class App extends Component {
   }
 
   render() {
+    console.log(this.state.isHotdog);
     return (
       <div>
         { this.state.isHotdog ? this.renderHeaderOK() : this.renderHeaderNotOK() }
